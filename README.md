@@ -10,3 +10,5 @@ Bitte vor der nutzung die `login.txt` konfigurieren. Die Datei muss folgendes Fo
 | 2 | Passwort von CC | SehrSicheresPasswort |
 | 3 | Uhrzeit, wenn der Bot die Aufgabe um 14:15 durchführen soll | 1415 |
 | 4 | Autoshutdown, fährt PC automatisch herunter true oder false | false |
+
+DOWNLOAD LINK: https://github.com/asunayuukii/CCLogMeOut/releases
