@@ -42,7 +42,7 @@ Niemals als root programme installieren oder ausführen -> https://wiki.ubuntuus
 
 | | Befehl |
 |--|--|
-| 1 | `cd && mkdir cclogmeout` |
+| 1 | `cd && mkdir cclogmeout && cd cclogmeout` |
 | 2a | `nano ccmelogout_debian.py` |
 | 2b | Script kopieren und Script einfügen |
 | 2c | Zeile 121 NAME, PASSWORT und Uhrzeit ändern |
