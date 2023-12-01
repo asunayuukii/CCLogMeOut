@@ -49,24 +49,25 @@ class cc_controller():
             time.sleep(random.randint(1,3))
 
             pswinput.send_keys(Keys.ENTER)
-
             time.sleep(random.randint(1,3))
 
             zeiterfassung = browser.find_element(By.LINK_TEXT, '- Zeiterfassung')
             zeiterfassung.click()
+            time.sleep(random.randint(2,4))
 
             dialog = browser.find_element(By.CLASS_NAME, 'buttonShowDialogButton')
-            time.sleep(random.randint(1,3))
             dialog.click()
-            time.sleep(random.randint(1,3))
+            time.sleep(random.randint(2,4))
+            
             gehenbtn = browser.find_element(By.NAME, 'kommengehenbutton')
-
             if gehenbtn.get_attribute('value').lower() != value.lower():
                 browser.quit()
                 return -1 #error already gehen/kommen
-
-            time.sleep(random.randint(1,3))
             gehenbtn.click()
+            time.sleep(random.randint(2,4))
+
+            closebtn = browser.find_element(By.CLASS_NAME, 'ui-dialog-titlebar-close')
+            closebtn.click()
             time.sleep(random.randint(2,4))
             browser.quit()
             return 1
