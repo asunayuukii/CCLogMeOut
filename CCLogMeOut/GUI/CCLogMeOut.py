@@ -140,6 +140,7 @@ thread = threading.Thread(target=worker, daemon=True, args=(event,))
 appcd = None
 data = None
 silent = True
+version = [2,0,1]
 
 if getattr(sys, 'frozen', False):
     appcd = os.path.dirname(sys.executable)
@@ -190,6 +191,7 @@ if __name__ == '__main__':
     if data.config['error'] == 405:
         print('ERNO:400_CONF')
         input()
+        exit()
     
     controller = cc_controller(
         ccname=data.config['ccname'], 
@@ -206,7 +208,6 @@ if __name__ == '__main__':
     )
 
     thread.start()
-    
     print('Selftest läuft...')
 
     if debug == False:
@@ -235,7 +236,7 @@ if __name__ == '__main__':
             input()
 
         a = input('> ')
-        while a.lower() not in {'1','2','3','4','5','9','exit','start','stop','quit','clear','show','config','reload','7','6','selftest', 'self', 'test','login','logout', 'now', '8', 'skip'}:
+        while a.lower() not in {'1','2','3','4','5','9','exit','start','stop','quit','clear','show','config','reload','7','6','selftest', 'self', 'test','login','logout', 'now', '8', 'skip', 'v', 'version'}:
             print('Eingabe konnte nicht validiert werden.')
             a = input('> ')
 
@@ -291,13 +292,13 @@ if __name__ == '__main__':
                     if r == 1: print('Erfolg.\n')
                     elif r == -1: print('ERROR. Anscheinend warst du schon eingeloggt.\n')
                     elif r == -2: print('ERROR. Logindaten wahrscheinlich fehlerhaft.\n')
-                    else: ('ERROR. Fehler unbekannt.\n')
+                    else: print('ERROR. Fehler unbekannt.\n')
                 elif a.lower() == 'logout': 
                     r = controller.run('gehen')
                     if r == 1: print('Erfolg.\n')
                     elif r == -1: print('ERROR. Anscheinend warst du schon ausgeloggt.\n')
                     elif r == -2: print('ERROR. Logindaten wahrscheinlich fehlerhaft.\n')
-                    else: ('ERROR. Fehler unbekannt.\n')
+                    else: print('ERROR. Fehler unbekannt.\n')
 
         if a.lower() in {'6','clear'}:
             if platform.system() == 'Windows': os.system('cls')
@@ -324,3 +325,6 @@ if __name__ == '__main__':
         
         if a.lower() in {'8','skip'}:
             skip()
+
+        if a.lower() in {'v', 'version'}:
+            print('v'+str(version[0])+'.'+str(version[1])+'.'+str(version[2]),'\n')
