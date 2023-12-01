@@ -1,4 +1,4 @@
-# CCLogMeOut v1.5
+# CCLogMeOut v2.0
 ![CCLogMeOut](https://i.ibb.co/hDwhfbw/cclogmeout.png)
 **[German Only]** CCLogMeOut ist ein Bot für die Zeiterfassung von ComCave. Dieser Bot loggt dich auf der webseite ein und stempelt dich ein oder aus je nach deinem letzten Status.
 
