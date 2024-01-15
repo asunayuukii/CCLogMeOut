@@ -140,7 +140,7 @@ thread = threading.Thread(target=worker, daemon=True, args=(event,))
 appcd = None
 data = None
 silent = True
-version = [2,0,1]
+version = [2,0,2]
 
 if getattr(sys, 'frozen', False):
     appcd = os.path.dirname(sys.executable)
