@@ -26,8 +26,13 @@ class cc_controller():
             if self.headless:
                 op = webdriver.FirefoxOptions()
                 op.headless = True
+                op.binary_location = r'C:\Program Files\Mozilla Firefox\firefox.exe'
                 browser = webdriver.Firefox(options=op)
-            else: browser = webdriver.Firefox()
+            else: 
+                op = webdriver.FirefoxOptions()
+                op.headless = False
+                op.binary_location = r'C:\Program Files\Mozilla Firefox\firefox.exe'
+                browser = webdriver.Firefox(options=op)
         else:
             if self.headless:
                 op = webdriver.ChromeOptions()
@@ -75,10 +80,12 @@ class cc_controller():
             time.sleep(random.randint(2,4))
             browser.quit()
             return 1
-        except NoSuchElementException: #LoginError
+        except NoSuchElementException as e: #LoginError
+            if self.debug: print(e)
             browser.quit()
             return -2
-        except: #Error Unknown
+        except Exception as e: #Error Unknown
+            if self.debug: print(e)
             browser.quit()
             return 0
 
@@ -90,8 +97,13 @@ class cc_controller():
                 if self.headless:
                     op = webdriver.FirefoxOptions()
                     op.headless = True
+                    op.binary_location = r'C:\Program Files\Mozilla Firefox\firefox.exe'
                     browser = webdriver.Firefox(options=op)
-                else: browser = webdriver.Firefox()
+                else: 
+                    op = webdriver.FirefoxOptions()
+                    op.headless = False
+                    op.binary_location = r'C:\Program Files\Mozilla Firefox\firefox.exe'
+                    browser = webdriver.Firefox(options=op)
             else:
                 if self.headless:
                     op = webdriver.ChromeOptions()
@@ -109,8 +121,7 @@ class cc_controller():
             browser.quit()
             return True
         except Exception as e:
-            return False
-        except:
+            if self.debug: print(e)
             return False
         
     def istime(self, timer:datetime) -> bool:
