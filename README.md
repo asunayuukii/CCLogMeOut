@@ -56,8 +56,8 @@ Niemals als root programme installieren oder ausführen -> https://wiki.ubuntuus
 | 9a | `nano startscript.sh` |
 | 9b | `nohup java -cp selenium-server-standalone.jar:htmlunit-driver.jar org.openqa.grid.selenium.GridLauncherV3 &` |
 | 9c | "STRG + X" "y" "ENTER" zum Speichern |
-| 10 | `chmod +x startserver.sh` |
-| 11 | `./startserver.sh` |
+| 10 | `chmod +x startscript.sh` |
+| 11 | `./startscript.sh` |
 | 12 | `./ccmelogout_debian.py` |
 
 ## FAQ - Troubleshooting:
@@ -73,3 +73,6 @@ Niemals als root programme installieren oder ausführen -> https://wiki.ubuntuus
 
 **java installiert?**
 - java --version >> java installieren >> sudo apt-get install default-jre
+
+**"error: externally-managed-environment" wenn du den pip Command ausführst?**
+- python3 -m pip config set global.break-system-packages true >> versuche nochmal den Pip Command
